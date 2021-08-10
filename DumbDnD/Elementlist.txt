@@ -1,0 +1,48 @@
+0
+Name: Earth 
+  
+    Strength: Light Difference + 1
+    EvenlyMatched: Thunder  Difference + 4
+    Weakness: Fire  Difference - 1
+    Battle: [Ice 2 , Dark 4]
+   
+Strength: Self + 1
+EvenlyMatched: Self + 3
+Weakness: Self - 1
+Battle: Self + 2, Self + 4
+
+1
+Name: Light 
+    Strength: Ice 2
+    EvenlyMatched: Dark 4
+    Weakness: Earth
+    Battle: Thunder, Fire
+
+2
+Name: Ice
+Strength: Thunder
+EvenlyMatched: Fire
+Weakness: Light
+Battle: Dark, Earth
+
+3
+Name: Thunder
+Strength: Dark
+EvenlyMatched: Earth
+Weakness: Ice
+Battle: Fire, Light
+
+4
+Name: Dark
+Strength: Fire
+EvenlyMatched: Light
+Weakness: Thunder
+Battle: Earth, Ice
+
+5
+Name: Fire
+Strength: Earth
+EvenlyMatched: Ice
+Weakness: Dark
+Battle: Light, Thunder
+}

@@ -1,0 +1,16 @@
+C:\Users\Ryan\source\repos\DumbDnD\DumbDnD\bin\Debug\net5.0\DumbDnD.exe
+C:\Users\Ryan\source\repos\DumbDnD\DumbDnD\bin\Debug\net5.0\DumbDnD.deps.json
+C:\Users\Ryan\source\repos\DumbDnD\DumbDnD\bin\Debug\net5.0\DumbDnD.runtimeconfig.json
+C:\Users\Ryan\source\repos\DumbDnD\DumbDnD\bin\Debug\net5.0\DumbDnD.runtimeconfig.dev.json
+C:\Users\Ryan\source\repos\DumbDnD\DumbDnD\bin\Debug\net5.0\DumbDnD.dll
+C:\Users\Ryan\source\repos\DumbDnD\DumbDnD\bin\Debug\net5.0\ref\DumbDnD.dll
+C:\Users\Ryan\source\repos\DumbDnD\DumbDnD\bin\Debug\net5.0\DumbDnD.pdb
+C:\Users\Ryan\source\repos\DumbDnD\DumbDnD\obj\Debug\net5.0\DumbDnD.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ryan\source\repos\DumbDnD\DumbDnD\obj\Debug\net5.0\DumbDnD.AssemblyInfoInputs.cache
+C:\Users\Ryan\source\repos\DumbDnD\DumbDnD\obj\Debug\net5.0\DumbDnD.AssemblyInfo.cs
+C:\Users\Ryan\source\repos\DumbDnD\DumbDnD\obj\Debug\net5.0\DumbDnD.csproj.CoreCompileInputs.cache
+C:\Users\Ryan\source\repos\DumbDnD\DumbDnD\obj\Debug\net5.0\DumbDnD.dll
+C:\Users\Ryan\source\repos\DumbDnD\DumbDnD\obj\Debug\net5.0\ref\DumbDnD.dll
+C:\Users\Ryan\source\repos\DumbDnD\DumbDnD\obj\Debug\net5.0\DumbDnD.pdb
+C:\Users\Ryan\source\repos\DumbDnD\DumbDnD\obj\Debug\net5.0\DumbDnD.genruntimeconfig.cache
+C:\Users\Ryan\source\repos\DumbDnD\DumbDnD\obj\Debug\net5.0\DumbDnD.csproj.AssemblyReference.cache
