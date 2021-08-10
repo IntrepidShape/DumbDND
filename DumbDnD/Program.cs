@@ -40,7 +40,6 @@ namespace DumbDnD
                             _elementID = 0;
                         }
                     }
-
                     break;
                 }
                 case true:
@@ -53,7 +52,6 @@ namespace DumbDnD
                             _elementID = 5;
                         }
                     }
-
                     break;
                 }
             }
@@ -67,6 +65,7 @@ namespace DumbDnD
             {
                 _player.Health = 0;
                 _player.Dead = true;
+                Console.WriteLine(_player.Name + "has died and out of the game!");
                 numOfDeadPlayers++;
             }
         }
@@ -219,11 +218,12 @@ namespace DumbDnD
                 Console.WriteLine("");
 
                 int round = 0;
+                string lastPlayer= "";
                 //first Loop?
-                while (numOfDeadPlayers <= NumberOfPlayers - 1)
+                while (numOfDeadPlayers < NumberOfPlayers - 1)
                 {
                     round++;
-                    Console.WriteLine("RoundNumber" + round);
+                    Console.WriteLine("Round Number " + round);
                     
                     for (int PlayerNumber = 0; PlayerNumber <= (NumberOfPlayers - 1); PlayerNumber++)
                     {
@@ -239,19 +239,14 @@ namespace DumbDnD
                         Console.WriteLine(Players[PlayerNumber].Name + " (" + Players[PlayerNumber].ElementName + ")" + " Lands on " + GameBoardTile(Players[PlayerNumber].Position));
                         InvokeTile(Players[PlayerNumber]);
                         Console.ReadLine();
+                        lastPlayer = Players[PlayerNumber].Name;
                     }
                 }
-
                 
-                for(var i = 0; i < NumberOfPlayers; i++)
-                {
-                    if (!Players[i].Dead)
-                    {
-                        Console.WriteLine(Players[i].Name + " Wins!");
-                        Console.WriteLine("GameOver!");
-                        break;
-                    }
-                }
+                
+                Console.WriteLine(lastPlayer + " Wins!");
+                Console.WriteLine("GameOver!");
+                Console.ReadLine();
 
             }
             else
@@ -259,7 +254,6 @@ namespace DumbDnD
                 //Function Tests go in here /unit tests
                 Console.WriteLine(ElementRollAround(2,true, 3));
             }
-                
         }
     }
 }
