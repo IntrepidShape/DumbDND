@@ -13,10 +13,12 @@ namespace DumbDnD
         public string ElementName = "";
         public int MoveRoll = 0;
         public int Position = 0;
+        public bool Dead = false;
     }
     
      static class Program
-    {
+     { 
+         private static int numOfDeadPlayers = 0;
         private static int RandomNumber(int min, int max)
         {
             //Creates new instance of random seeded with current second in the current minute
@@ -56,6 +58,17 @@ namespace DumbDnD
                 }
             }
             return _elementID;
+        }
+
+        public static void TakeDamage(Player _player, int damage)
+        {
+            _player.Health -= damage;
+            if (_player.Health <= 0)
+            {
+                _player.Health = 0;
+                _player.Dead = true;
+                numOfDeadPlayers++;
+            }
         }
 
         private static string WhatElementAmI(int elementID)
@@ -118,11 +131,16 @@ namespace DumbDnD
             {   
                 if (WhatElementAmI(ElementRollAround(_player.ElementId,false, 1)) == tile)
                 {
-                    Console.WriteLine("You landed on the Battle...You are strong agaisnt " + tile + " you win.");
+                    Console.WriteLine("You landed on the Battle...You are strong against " + tile + " you win.");
+                    _player.Gold += 5;
                 }
                 else if (WhatElementAmI(ElementRollAround(_player.ElementId, true, 1)) == tile)
                 {
-                    Console.WriteLine("You landed on the Battle...You are weak agaisnt " + tile + " you lose");
+                    Console.WriteLine("You landed on the Battle...You are weak against " + tile + " you lose 10 Health");
+                    TakeDamage(_player,10);
+                    Console.WriteLine("Health is " + _player.Health);
+                    
+                    
                 }
                 else if (WhatElementAmI(ElementRollAround(_player.ElementId, false, 3)) == tile)
                 {
@@ -139,15 +157,16 @@ namespace DumbDnD
                     }
                     if (tempRoll <= 3)
                     {
-                        Console.WriteLine("You rolled " + tempRoll + " you lose!");
+                        Console.WriteLine("You rolled " + tempRoll + " you Lose!");
+                        TakeDamage(_player,5);
+                        Console.WriteLine("Health is " + _player.Health);
                     }
 
                 }
                 else
                 {
-                    Console.WriteLine("Something has gone horribly wrong with the code of this game, invoke Tile Function. Printing error below.");
+                    Console.WriteLine("Something has gone horribly wrong with the code of the invoke Tile Function. Printing error below.");
                     Console.WriteLine("Element ID " + WhatElementAmI(_player.ElementId) + " " + "Current Tile " + tile);
-                    
                 }
             }
         }
@@ -193,30 +212,51 @@ namespace DumbDnD
                     Console.WriteLine("ElementName " + Players[i].ElementName);
                     Console.WriteLine("");
                 }
-                Console.WriteLine("Intialisation Complete");
+                Console.WriteLine("Initialisation Complete");
                 Console.WriteLine("Hit Enter To Continue...");
                 Console.ReadLine();
 
                 Console.WriteLine("");
 
+                int round = 0;
                 //first Loop?
-                while (true)
+                while (numOfDeadPlayers <= NumberOfPlayers - 1)
                 {
+                    round++;
+                    Console.WriteLine("RoundNumber" + round);
+                    
                     for (int PlayerNumber = 0; PlayerNumber <= (NumberOfPlayers - 1); PlayerNumber++)
                     {
+                        if (Players[PlayerNumber].Dead)
+                        {
+                            break;
+                        }
                         Console.WriteLine("Hit Enter to roll to move");
                         Console.ReadLine();
                         Players[PlayerNumber].MoveRoll = RandomNumber(1, 7);
-                        Console.WriteLine(Players[PlayerNumber].Name + " (Player " + Players[PlayerNumber].PlayerId + ")" + " Rolls a " + Players[PlayerNumber].MoveRoll);
+                        Console.WriteLine(Players[PlayerNumber].Name + " (" + Players[PlayerNumber].ElementName + ")" + " Rolls a " + Players[PlayerNumber].MoveRoll);
                         Players[PlayerNumber].Position = GBRollaround(Players[PlayerNumber].Position, Players[PlayerNumber].MoveRoll);
-                        Console.WriteLine(Players[PlayerNumber].Name + " (Player " + Players[PlayerNumber].PlayerId + ")" + " Lands on " + GameBoardTile(Players[PlayerNumber].Position));
+                        Console.WriteLine(Players[PlayerNumber].Name + " (" + Players[PlayerNumber].ElementName + ")" + " Lands on " + GameBoardTile(Players[PlayerNumber].Position));
                         InvokeTile(Players[PlayerNumber]);
                         Console.ReadLine();
                     }
                 }
+
+                
+                for(var i = 0; i < NumberOfPlayers; i++)
+                {
+                    if (!Players[i].Dead)
+                    {
+                        Console.WriteLine(Players[i].Name + " Wins!");
+                        Console.WriteLine("GameOver!");
+                        break;
+                    }
+                }
+
             }
             else
             {
+                //Function Tests go in here /unit tests
                 Console.WriteLine(ElementRollAround(2,true, 3));
             }
                 
